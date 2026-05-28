@@ -8,3 +8,14 @@ CREATE TABLE dimcustomer (
     customer_address TEXT,
     customer_credit_limit NUMERIC(12,2)
 );
+
+CREATE TABLE dimproduct (
+    id_dimproduct SERIAL PRIMARY KEY,
+    product_id INT,
+    product_name VARCHAR(255),
+    category_name VARCHAR(255),
+    product_description TEXT,
+    product_standard_cost NUMERIC(12,2),
+    product_list_price NUMERIC(12,2),
+    profit NUMERIC(12,2)
+);
