@@ -11,7 +11,7 @@ CREATE TABLE dimcustomer (
 
 CREATE TABLE dimproduct (
     id_dimproduct SERIAL PRIMARY KEY,
-    product_id INT,
+    product_id VARCHAR(10),
     product_name VARCHAR(255),
     category_name VARCHAR(255),
     product_description TEXT,
