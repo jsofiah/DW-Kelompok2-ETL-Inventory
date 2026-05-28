@@ -19,3 +19,24 @@ CREATE TABLE dimproduct (
     product_list_price NUMERIC(12,2),
     profit NUMERIC(12,2)
 );
+
+-- untuk di mysql
+
+CREATE TABLE dim_orders (
+    id_dim_order INT AUTO_INCREMENT PRIMARY KEY,
+    order_id INT,
+    customer_id INT,
+    order_date DATE
+);
+
+
+CREATE TABLE dim_employee (
+    id_dim_employee INT AUTO_INCREMENT PRIMARY KEY,
+    employee_id INT,
+    employee_name VARCHAR(100),
+    employee_email VARCHAR(100),
+    employee_phone VARCHAR(30),
+    employee_hire_date DATE,
+    employee_job_title VARCHAR(100),
+    warehouse_id INT
+);
