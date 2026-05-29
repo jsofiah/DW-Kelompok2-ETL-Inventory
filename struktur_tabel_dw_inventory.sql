@@ -40,3 +40,21 @@ CREATE TABLE dim_employee (
     employee_job_title VARCHAR(100),
     warehouse_id INT
 );
+
+CREATE TABLE dimRegion (
+    RegionID INT PRIMARY KEY,
+    RegionName VARCHAR(100),
+    CountryName VARCHAR(100),
+    State VARCHAR(100),
+    City VARCHAR(100),
+    PostalCode VARCHAR(20)
+);
+
+CREATE TABLE dimDate (
+    id_dimDate INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    FullDate DATE,
+    Day INT,
+    Month INT,
+    Quarter INT,
+    Year INT
+);
