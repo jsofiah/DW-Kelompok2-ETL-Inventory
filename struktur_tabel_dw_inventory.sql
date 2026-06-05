@@ -20,6 +20,14 @@ CREATE TABLE dimproduct (
     profit NUMERIC(12,2)
 );
 
+CREATE TABLE dimwarehouse (
+    id_dimwarehouse SERIAL PRIMARY KEY,
+    warehouse_id INT NOT NULL,
+    warehouse_name VARCHAR(100),
+    warehouse_address VARCHAR(255),
+    region_id INT
+);
+
 -- untuk di mysql
 
 CREATE TABLE dim_orders (
