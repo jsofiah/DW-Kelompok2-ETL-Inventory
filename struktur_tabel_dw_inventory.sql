@@ -28,6 +28,36 @@ CREATE TABLE dimwarehouse (
     region_id INT
 );
 
+CREATE TABLE factorderdetails (
+    factorderdetailsid SERIAL PRIMARY KEY,
+
+    orderid INT,
+    productid INT,
+    customerid INT,
+    orderdatekey INT,
+
+    orderitemquantity INT,
+    perunitprice NUMERIC(12,2),
+    totalsales NUMERIC(15,2),
+    profit NUMERIC(15,2),
+
+    CONSTRAINT fk_order
+        FOREIGN KEY (orderid)
+        REFERENCES dim_orders(id_dim_order),
+
+    CONSTRAINT fk_product
+        FOREIGN KEY (productid)
+        REFERENCES dimproduct(id_dimproduct),
+
+    CONSTRAINT fk_customer
+        FOREIGN KEY (customerid)
+        REFERENCES dimcustomer(id_dimcustomer),
+
+    CONSTRAINT fk_date
+        FOREIGN KEY (orderdatekey)
+        REFERENCES dimdate(datekey)
+);
+
 -- untuk di mysql
 
 CREATE TABLE dim_orders (
