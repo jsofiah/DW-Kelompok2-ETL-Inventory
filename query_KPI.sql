@@ -9,14 +9,19 @@ JOIN dimdate d
 GROUP BY d.year, d.month
 ORDER BY d.year, d.month;
 
--- 2.	Average Order Value
+-- 2.	Average Order Value per Product Category
 SELECT
+    p.category_name,
     ROUND(
-        SUM(totalsales)
+        SUM(f.totalsales)
         /
-        COUNT(DISTINCT orderid)
+        COUNT(DISTINCT f.orderid)
     ,2) AS average_order_value
-FROM factorderdetails;
+FROM factorderdetails f
+JOIN dimproduct p
+    ON f.productid = p.id_dimproduct
+GROUP BY p.category_name
+ORDER BY average_order_value DESC;
 
 -- 3.	Yearly Sales Growth Rate
 WITH yearly_sales AS (
